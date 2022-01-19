@@ -431,7 +431,7 @@
           },
           "locations": [
             {
-              "id":311971300974507712963699621624531493277,
+              "id":1,
               "physicalLocation": {
                     "artifactLocation": {
                       "uri": "Manifest"
@@ -454,7 +454,7 @@
           },
           "locations": [
             {
-              "id":152837668226516122418835462082029522019,
+              "id":2,
               "physicalLocation": {
                     "artifactLocation": {
                       "uri": "com.zimperium.zdetection.utils.DebugLogger"
@@ -468,7 +468,7 @@
                 }
             },
             {
-              "id":176953325908109297956380241085906487887,
+              "id":3,
               "physicalLocation": {
                     "artifactLocation": {
                       "uri": "com.zimperium.zdetection.SupportedFeatures"
@@ -482,7 +482,7 @@
                 }
             },
             {
-              "id":263197101406835703049678695808251024797,
+              "id":3,
               "physicalLocation": {
                     "artifactLocation": {
                       "uri": "com.zimperium.zdetection.knox.KnoxManager"
@@ -505,7 +505,7 @@
           },
           "locations": [
             {
-              "id":152837668226516122418835462082029522019,
+              "id":5,
               "physicalLocation": {
                     "artifactLocation": {
                       "uri": "com.zimperium.zips.ZIAPAndroidInterface"
@@ -519,7 +519,7 @@
                 }
             },
             {
-              "id":176953325908109297956380241085906487887,
+              "id":6,
               "physicalLocation": {
                     "artifactLocation": {
                       "uri": "com.zimperium.zdetection.utils.ApkUtil"
@@ -533,7 +533,7 @@
                 }
             },
             {
-              "id":286540528626924646832529434674942948276,
+              "id":7,
               "physicalLocation": {
                     "artifactLocation": {
                       "uri": "com.zimperium.f0"
@@ -556,7 +556,7 @@
           },
           "locations": [
             {
-              "id":327818130668588569355398058188961343242,
+              "id":8,
               "physicalLocation": {
                     "artifactLocation": {
                       "uri": "classes.dex"
@@ -579,7 +579,7 @@
           },
           "locations": [
             {
-              "id":327818130668588569355398058188961343242,
+              "id":9,
               "physicalLocation": {
                     "artifactLocation": {
                       "uri": "classes.dex"
@@ -602,7 +602,7 @@
           },
           "locations": [
             {
-              "id":152837668226516122418835462082029522019,
+              "id":10,
               "physicalLocation": {
                     "artifactLocation": {
                       "uri": "com.zimperium.zips.ZTrustManager"
@@ -616,7 +616,7 @@
                 }
             },
             {
-              "id":176953325908109297956380241085906487887,
+              "id":11,
               "physicalLocation": {
                     "artifactLocation": {
                       "uri": "com.zimperium.k1"
@@ -630,7 +630,7 @@
                 }
             },
             {
-              "id":286540528626924646832529434674942948276,
+              "id":12,
               "physicalLocation": {
                     "artifactLocation": {
                       "uri": "com.zimperium.o"
@@ -653,7 +653,7 @@
           },
           "locations": [
             {
-              "id":327818130668588569355398058188961343242,
+              "id":13,
               "physicalLocation": {
                     "artifactLocation": {
                       "uri": "com.zimperium.zips.ZIAPAndroidInterface"
@@ -676,7 +676,7 @@
           },
           "locations": [
             {
-              "id":327818130668588569355398058188961343242,
+              "id":14,
               "physicalLocation": {
                     "artifactLocation": {
                       "uri": "classes.dex"
@@ -699,7 +699,7 @@
           },
           "locations": [
             {
-              "id":327818130668588569355398058188961343242,
+              "id":15,
               "physicalLocation": {
                     "artifactLocation": {
                       "uri": "kotlin.io.FilesKt__UtilsKt"
@@ -722,7 +722,7 @@
           },
           "locations": [
             {
-              "id":327818130668588569355398058188961343242,
+              "id":16,
               "physicalLocation": {
                     "artifactLocation": {
                       "uri": "com.zimperium.e3"
@@ -736,7 +736,7 @@
                 }
             },
             {
-              "id":327818130668588569355398058188961343242,
+              "id":17,
               "physicalLocation": {
                     "artifactLocation": {
                       "uri": "com.zimperium.r6"
@@ -759,7 +759,7 @@
           },
           "locations": [
             {
-              "id":327818130668588569355398058188961343242,
+              "id":18,
               "physicalLocation": {
                     "artifactLocation": {
                       "uri": "kotlinx.coroutines.internal.ExceptionsConstuctorKt"
@@ -773,7 +773,7 @@
                 }
             },
             {
-              "id":327818130668588569355398058188961343242,
+              "id":19,
               "physicalLocation": {
                     "artifactLocation": {
                       "uri": "kotlinx.coroutines.internal.ConcurrentKt"
@@ -796,7 +796,7 @@
           },
           "locations": [
             {
-              "id":327818130668588569355398058188961343242,
+              "id":20,
               "physicalLocation": {
                     "artifactLocation": {
                       "uri": "com.zimperium.zdetection.service.ZVpnApi"
@@ -810,7 +810,7 @@
                 }
             },
             {
-              "id":327818130668588569355398058188961343242,
+              "id":21,
               "physicalLocation": {
                     "artifactLocation": {
                       "uri": "com.zimperium.zdetection.service.ZVpnService"
@@ -833,7 +833,7 @@
           },
           "locations": [
             {
-              "id":327818130668588569355398058188961343242,
+              "id":22,
               "physicalLocation": {
                     "artifactLocation": {
                       "uri": "com.zimperium.z1"
@@ -847,7 +847,7 @@
                 }
             },
             {
-              "id":327818130668588569355398058188961343242,
+              "id":23,
               "physicalLocation": {
                     "artifactLocation": {
                       "uri": "com.zimperium.zdetection.service.ZVpnService"
