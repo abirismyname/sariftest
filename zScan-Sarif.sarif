@@ -1,0 +1,868 @@
+ {
+   "version": "2.1.0",
+   "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+   "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "mobsfscan", 
+          "informationUri":"https://ziap.zimperium.com",
+          "semanticVersion":"2.5.7",
+           "properties": {
+                  "assessmentDate":"12-30-2021 7:35:00 UTC",
+                  "appPlatform":"android",
+                  "appName":"zIAP Playground",
+                  "appBundle":"com.zimperium.zdefend_demo",
+                  "appVersion":"1.0",
+                  "appBuild":"1",
+                  "appMD5Hash":"4db62bb57afdb1027c3a262f5178fb86",
+                  "appRulesVersion":"21103c9b11334593de7ffcc9b94f6924",
+                  "policyName":"Default"
+            },
+          "rules": [
+            {
+              "id": "5225b063-3a08-f68e-2bad-572100000000", 
+              "name": "Debug_App",
+              "shortDescription": {
+                "text": "This application has the \"android:debuggable\" attribute in the Android manifest file set to true."
+              },
+              "fullDescription": {
+                "text": "This application has the \"android:debuggable\" attribute in the Android manifest file set to true. This setting allows an adversary to debug the application on a physical device or emulator. Additionally, if an application is flagged as debuggable, an adversary can inject their own code to execute it in the context of the vulnerable application process."
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "helpUri": "https://TBD",
+              "help": {
+                "text": "Remove the \"android:debuggable=true\" setting from the Android manifest file or set it to false to mitigate this threat. Also, consider using Zimperium's zShield product to defend against debugging and malicious code injection. zShield provides tamper resistance, integrity checking, and debugger detection.",
+                "markdown": "TBD"
+              },
+              "properties": {
+              "tags": [
+                  "OWASP M10",
+                  "CVSS 2.0 score 3.5",
+                  "CVSS 2.0 vector AV:N/AC:M/Au:S/C:P/I:N/A:N",
+                  "CVSS 3.1 score 6.5",
+                  "CVSS 3.1 vector AV:N/AC:M/Au:S/C:P/I:N/A:N"
+                  ],
+                  "type": "security",
+                  "category":"Code Analysis",
+                  "subcategory":"Binary Protections Testing",
+                  "severity":"High"
+              }
+            },  
+            {
+              "id": "5d4203bc-7d33-27a1-308b-456700000000", 
+              "name": "SharedPreferences",
+              "shortDescription": {
+                "text": "This app uses a SharedPreferences instance."
+              },
+              "fullDescription": {
+                "text": "SharedPreferences on Android stores all of your values unencrypted in the /data/data/ location as an XML file, simply protected by the user-restricted file system on Android. If an adversary gains root access to an Android device they have full read/write access to the application preferences of the application, even if it was created with MODE_PRIV. If the data being stored is classified as sensitive, private, proprietary or confidential then SharedPreferences is a not a recommended solution."
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "helpUri": "https://TBD",
+              "help": {
+                "text": "When possible, store authentication data in the AccountManager or consider a third-party solution to encrypt the data prior to being inserted into SharedPrefences.",
+                "markdown": "TBD"
+              },
+              "properties": {
+                "tags": [
+                  "GDPR Artice 5, Section 1",
+                  "GDPR Artice 13, Section 1",
+                  "GDPR Artice 25, Section 1"
+                  ],
+                  "type": "security",
+                  "category":"Code Analysis",
+                  "subcategory":"Content API",
+                  "severity":"Low"
+              }
+            },
+            {
+              "id": "5d8ca3a7-7d33-2745-2f8b-456700000000", 
+              "name": "MD5_Hashing",
+              "shortDescription": {
+                "text": "The MD5 algorithm reports as prone to a hash collision weakness."
+              },
+              "fullDescription": {
+                "text": "The MD5 algorithm reports as prone to a hash collision weakness. This weakness reportedly allows attackers to create multiple, differing input sources that result in the same output fingerprint when the MD5 algorithm is used. For example, attackers could create a rogue software update that would be accepted and executed by an update mechanism that validates updates by checking the MD5 hash signature. When requiring a hash signature in a cryptographic use, it is recommended to utilize SHA-256, SHA-512, or Triple DES."
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "helpUri": "https://www.zimperium.com/zkeybox/",
+              "help": {
+                "text": "Use Zimperium's zKeyBox product to ensure that the implementation of cryptographic algorithms and keys are secure in zero-trust execution environments. zKeyBox is based on white-box cryptography designed to protect cryptographic keys, making it extremely difficult for attackers to locate, modify, and extract them. See https://www.zimperium.com/zkeybox/ for more information. \r\nWhen requiring a hash signature in a cryptographic use it is recommended to utilize SHA-256, SHA-512 or Triple DES.",
+                "markdown": "TBD"
+              },
+              "properties": {
+                "tags": [
+                  "CWE-327",
+                  "GDPR Article 32, Section 1.a",
+                  "OWASP M5",
+                  "CVSS 2.0 score 4.3",
+                  "CVSS 2.0 vector AV:N/AC:M/Au:N/C:P/I:N/A:N",
+                  "CVSS 3.1 score 5.9",
+                  "CVSS 3.1 vector AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N"
+                  ],
+                  "type": "security",
+                  "category":"Code Analysis",
+                  "subcategory":"Cryptography",
+                  "severity":"Medium"
+              }
+            },
+            {
+              "id": "5d9f4ea2-7d33-272f-bc8b-456700000000", 
+              "name": "Bluetooth_Communications",
+              "shortDescription": {
+                "text": "This application has access to bluetooth communications which is used for data transfer between two bluetooth enabled devices."
+              },
+              "fullDescription": {
+                "text": "This application has access to bluetooth communications which is used for data transfer between two bluetooth enabled devices. This is an informational finding which will be used by an evaluator to determine if the application is justified in this usage."
+              },
+              "defaultConfiguration": {
+                "level": "note"
+              },
+              "helpUri": "https://TBD",
+              "help": {
+                "text": "",
+                "markdown": "TBD"
+              },
+              "properties": {
+                "tags": [
+                  "NIAP FDP_DEC_EXT.1.1"
+                  ],
+                  "type": "security",
+                  "category":"Compliance",
+                  "subcategory":"Hardware Access",
+                  "severity":"Informational"
+              }
+            },
+            {
+              "id": "5db9a286-7d33-277c-4b8b-456700000000", 
+              "name": "DBRG_Cipher_Suggestion",
+              "shortDescription": {
+                "text": "his application is not using any DRBG functionality."
+              },
+              "fullDescription": {
+                "text": "This application is not using any DRBG functionality.  If encryption is used in the application, random bit generation should follow the FCS_RBG_EXT.2.1 requirements. \r\n\r\nThe requirements state the application shall perform all deterministic random bit generation (DRBG) services in accordance with NIST Special Publication 800-90A using Hash_DRBG, HMAC_DRBG or CTR_DRBG. This requirement shall implement DRBG functionality is chosen in FCS_RBG_EXT.1.1. While any of the identified hash functions (SHA-1, SHA-224, SHA-256, SHA-384, SHA-512) are allowed for Hash_DRBG or HMAC_DRBG, only AES-based implementations for CTR_DRBG are allowed."
+              },
+              "defaultConfiguration": {
+                "level": "note"
+              },
+              "helpUri": "https://TBD",
+              "help": {
+                "text": "",
+                "markdown": "TBD"
+              },
+              "properties": {
+                "tags": [
+                  "NIAP FCS_RBG_EXT.2.1"
+                  ],
+                  "type": "security",
+                  "category":"Compliance",
+                  "subcategory":"Random Bit Generation",
+                  "severity":"Informational"
+              }
+            },
+            {
+              "id": "5db9a286-7d33-277c-4b8b-456700000000", 
+              "name": "DBRG_Cipher_Suggestion",
+              "shortDescription": {
+                "text": "This application is not using any DRBG functionality."
+              },
+              "fullDescription": {
+                "text": "This application is not using any DRBG functionality.  If encryption is used in the application, random bit generation should follow the FCS_RBG_EXT.2.1 requirements. \r\n\r\nThe requirements state the application shall perform all deterministic random bit generation (DRBG) services in accordance with NIST Special Publication 800-90A using Hash_DRBG, HMAC_DRBG or CTR_DRBG. This requirement shall implement DRBG functionality is chosen in FCS_RBG_EXT.1.1. While any of the identified hash functions (SHA-1, SHA-224, SHA-256, SHA-384, SHA-512) are allowed for Hash_DRBG or HMAC_DRBG, only AES-based implementations for CTR_DRBG are allowed."
+              },
+              "defaultConfiguration": {
+                "level": "note"
+              },
+              "helpUri": "https://TBD",
+              "help": {
+                "text": "",
+                "markdown": "TBD"
+              },
+              "properties": {
+                "tags": [
+                  "NIAP FCS_RBG_EXT.2.1"
+                  ],
+                  "type": "security",
+                  "category":"Compliance",
+                  "subcategory":"Random Bit Generation",
+                  "severity":"Informational"
+              }
+            },
+            {
+              "id": "6107e7db-178b-b800-695a-990000000000", 
+              "name": "Uses_Certificate_Pinning",
+              "shortDescription": {
+                "text": "This app has implemented certificate pinning."
+              },
+              "fullDescription": {
+                "text": "This app has implemented certificate pinning. \r\n\r\nCertificate Pinning is the process of associating a host with their expected X509 certificate or public key to provide a layer of defense against MitM attacks that use forged certificates."
+              },
+              "defaultConfiguration": {
+                "level": "note"
+              },
+              "helpUri": "https://TBD",
+              "help": {
+                "text": "",
+                "markdown": "TBD"
+              },
+              "properties": {
+                "tags": [
+                  ""
+                  ],
+                  "type": "security",
+                  "category":"Communications",
+                  "subcategory":"SSL Checks",
+                  "severity":"Best Practices"
+              }
+            },
+            {
+              "id": "5e1c947b-71ac-d65e-5540-395100000000", 
+              "name": "SHA_Hashing_Not_In_Compliance",
+              "shortDescription": {
+                "text": "The application is using an unapproved SHA cryptographic algorithm per NIST regulation FCS_COP.1(2)."
+              },
+              "fullDescription": {
+                "text": "The application is using an unapproved SHA cryptographic algorithm per NIST regulation FCS_COP.1(2). The regulation requires the use of SHA-256, SHA-384, or SHA-512. SHA-1 is strongly discouraged."
+              },
+              "defaultConfiguration": {
+                "level": "note"
+              },
+              "helpUri": "https://www.zimperium.com/zkeybox/",
+              "help": {
+                "text": "Use Zimperium's zKeyBox product to ensure that the implementation of cryptographic algorithms and keys are secure in zero-trust execution environments. zKeyBox is based on white-box cryptography designed to protect cryptographic keys, making it extremely difficult for attackers to locate, modify, and extract them.",
+                "markdown": "TBD"
+              },
+              "properties": {
+                "tags": [
+                  "NIAP FCS_COP.1(2)"
+                  ],
+                  "type": "security",
+                  "category":"Compliance",
+                  "subcategory":"Cryptography",
+                  "severity":"Informational"
+              }
+            },
+            {
+              "id": "5fb402d1-d9a8-c20a-5e58-e34300000000", 
+              "name": "Weak_APK_Signing_Scheme",
+              "shortDescription": {
+                "text": "This application is signed with version 1 or 2 of the APK Signature Scheme."
+              },
+              "fullDescription": {
+                "text": "This application is signed with version 1 or 2 of the APK Signature Scheme. The recommended APK Signature Scheme version 3 was introduced in Android 9. Using the latest APK Signature Scheme helps ensure that no one has tampered with the contents of the APK."
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "helpUri": "https://www.zimperium.com/zShield/",
+              "help": {
+                "text": "Use Zimperium's zShield product to defend against application signature tampering and application cloning. zShield provides advanced APK signature verification and tamper resistance.",
+                "markdown": "TBD"
+              },
+              "properties": {
+                "tags": [
+                  "MASVS MSTG-CODE-1",
+                  "CVSS 2.0 score 3.8",
+                  "CVSS 2.0 vector AV:L/AC:H/Au:S/C:N/I:C/A:N",
+                  "CVSS 3.1 score 5.9",
+                  "CVSS 3.1 vector AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:N"
+                  ],
+                  "type": "security",
+                  "category":"Code Analysis",
+                  "subcategory":"Cryptography",
+                  "severity":"Medium"
+              }
+            },
+            {
+              "id": "591ad365-7d33-273e-038b-456700000000", 
+              "name": "Non-secure_File_Delete",
+              "shortDescription": {
+                "text": "The app utilizes the Java.io.File delete() method to perform a file deletion."
+              },
+              "fullDescription": {
+                "text": "The app utilizes the Java.io.File delete() method to perform a file deletion. This method is not a secure method of file deletion. Because the Android API does not provide a method to perform a secure file deletion operation, it is suggested to overwrite the file with random characters before performing the file delete operation when stored data is classified as sensitive, private, proprietary or confidential. Files are only marked for deletion and then can be recovered using third-party utilities on a rooted device."
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "helpUri": "https://TBD",
+              "help": {
+                "text": "Because the Android API does not provide a method to perform a secure file deletion operation, it is suggested to overwrite the file with random characters before performing the file delete operation when stored data is classified as sensitive, private, proprietary or confidential.",
+                "markdown": "TBD"
+              },
+              "properties": {
+                "tags": [
+                  ""
+                  ],
+                  "type": "security",
+                  "category":"Code Analysis",
+                  "subcategory":"File Storage",
+                  "severity":"Low"
+              }
+            },
+            {
+              "id": "591ad365-7d33-273e-038b-456700000000", 
+              "name": "Raw_SQL_Query",
+              "shortDescription": {
+                "text": "The application is using the rawQuery() or the rawQueryWithFactory() method calls."
+              },
+              "fullDescription": {
+                "text": "The application is using the rawQuery() or the rawQueryWithFactory() method calls. The SQL being passed to these methods needs to be reviewed to ensure proper SQL sanitization to avoid SQL Injection."
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "helpUri": "https://TBD",
+              "help": {
+                "text": "Recommendations include validating that error messages are disabled on production builds. SQL error messages provide adversaries with information on the structure of the database. Additionally, attempt to eliminate any SQL statements that rely on direct input from the user by using prepared SQL statements. If direct input is required then ensure the input contains only approved characters for encoding.\r\n\r\nThe best way to make sure adversaries will not be able to inject unsolicited SQL syntax is to avoid using SQLiteDatabase.rawQuery() instead opting for a parameterized statement. Using a compiled statement, such as SQLiteStatement, offers both binding and escaping of arguments to defend against SQL-injection attacks. \r\n\r\nAn alternative to SQLiteStatement is to use the query, insert, update, and delete methods on SQLiteDatabase as they offer parameterized statements via their use of string arrays.",
+                "markdown": "TBD"
+              },
+              "properties": {
+                "tags": [
+                  "CWE-89",
+                  "OWASP M7",
+                  "CVSS 2.0 score 4.3",
+                  "CVSS 2.0 vector AV:N/AC:M/Au:N/C:P/I:N/A:N",
+                  "CVSS 3.1 score 5.9",
+                  "CVSS 3.1 vector AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N"
+                  ],
+                  "type": "security",
+                  "category":"Code Analysis",
+                  "subcategory":"Database",
+                  "severity":"Medium"
+              }
+            },
+            {
+              "id": "591ad365-7d33-273e-038b-456700000000", 
+              "name": "Java_Reflection_API_Invoked",
+              "shortDescription": {
+                "text": "Reflection is an API that is used to examine or modify the behaviour of methods, classes and interfaces at runtime."
+              },
+              "fullDescription": {
+                "text": "Reflection is an API that is used to examine or modify the behaviour of methods, classes and interfaces at runtime. An application can use the Java reflection APIs to access and update fields, and execute methods that are forbidden by normal Java access / visibility rules.\r\n\r\nReflection can assist the developer to inspect a class, interface, the class structure, methods and fields without knowing the names of the classes at compile time. What makes it even more interesting is that developers can manipulate fields, invoke methods and also instantiate new objects.\r\n\r\nHowever, with access to private fields, etc. inspection and modification of internal data is possible and could lead to various malicious exploits and data leakage."
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "helpUri": "https://TBD",
+              "help": {
+                "text": "Because of the potential to abuse the Reflection API it is strongly recommended that when reflection is used in third party libraries that those libraries are reviewed to ensure an acceptable use of the reflection API",
+                "markdown": "TBD"
+              },
+              "properties": {
+                "tags": [
+                  ""
+                  ],
+                  "type": "security",
+                  "category":"Code Analysis",
+                  "subcategory":"Method",
+                  "severity":"Medium"
+              }
+            },
+            {
+              "id": "5da893bf-7d33-27f0-1f8b-456a00000000", 
+              "name": "Network_Communications",
+              "shortDescription": {
+                "text": "This application has access to the network communication which is used to send and receive data to local or remote services and systems."
+              },
+              "fullDescription": {
+                "text": "This application has access to the network communication which is used to send and receive data to local or remote services and systems. This is an informational finding which will be used by an evaluator to determine if the application is justified in this usage."
+              },
+              "defaultConfiguration": {
+                "level": "note"
+              },
+              "helpUri": "https://TBD",
+              "help": {
+                "text": "",
+                "markdown": "TBD"
+              },
+              "properties": {
+                "tags": [
+                  "NIAP FDP_DEC_EXT.1.1"
+                  ],
+                  "type": "security",
+                  "category":"Compliance",
+                  "subcategory":"Hardware Access",
+                  "severity":"Informational"
+              }
+            },
+            {
+              "id": "5da89d29-7d33-27f1-1f8b-456800000000", 
+              "name": "Telephony_Hardware",
+              "shortDescription": {
+                "text": "This application has access to the telephony services which is used to send and receive data to local or remote services and systems."
+              },
+              "fullDescription": {
+                "text": "This application has access to the telephony services which is used to send and receive data to local or remote services and systems. This is an informational finding which will be used by an evaluator to determine if the application is justified in this usage."
+              },
+              "defaultConfiguration": {
+                "level": "note"
+              },
+              "helpUri": "https://TBD",
+              "help": {
+                "text": "",
+                "markdown": "TBD"
+              },
+              "properties": {
+                "tags": [
+                  "NIAP FDP_DEC_EXT.1.1"
+                  ],
+                  "type": "security",
+                  "category":"Compliance",
+                  "subcategory":"Hardware Access",
+                  "severity":"Informational"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "5225b063-3a08-f68e-2bad-572100000000",
+          "ruleIndex": 0,
+          "message": {
+            "text": "This application has the \"android:debuggable\" attribute in the Android manifest file set to true."
+          },
+          "locations": [
+            {
+              "id":311971300974507712963699621624531493277,
+              "physicalLocation": {
+                    "artifactLocation": {
+                      "uri": "Manifest"
+                    },
+                      "region": {
+                        "startLine": 25,
+                        "snippet": {
+                          "text": "5 lines above and below"
+                          }
+                      }
+                }
+            }
+          ]
+        },
+        {
+          "ruleId": "5d4203bc-7d33-27a1-308b-456700000000",
+          "ruleIndex": 1,
+          "message": {
+            "text": "This app uses a SharedPreferences instance."
+          },
+          "locations": [
+            {
+              "id":152837668226516122418835462082029522019,
+              "physicalLocation": {
+                    "artifactLocation": {
+                      "uri": "com.zimperium.zdetection.utils.DebugLogger"
+                    },
+                      "region": {
+                        "startLine": 25,
+                        "snippet": {
+                          "text": "5 lines above and below"
+                          }
+                      }
+                }
+            },
+            {
+              "id":176953325908109297956380241085906487887,
+              "physicalLocation": {
+                    "artifactLocation": {
+                      "uri": "com.zimperium.zdetection.SupportedFeatures"
+                    },
+                      "region": {
+                        "startLine": 25,
+                        "snippet": {
+                          "text": "5 lines above and below"
+                          }
+                      }
+                }
+            },
+            {
+              "id":263197101406835703049678695808251024797,
+              "physicalLocation": {
+                    "artifactLocation": {
+                      "uri": "com.zimperium.zdetection.knox.KnoxManager"
+                    },
+                      "region": {
+                        "startLine": 25,
+                        "snippet": {
+                          "text": "5 lines above and below"
+                          }
+                      }
+                }
+            }
+          ]
+        },
+        {
+          "ruleId": "5d8ca3a7-7d33-2745-2f8b-456700000000",
+          "ruleIndex": 2,
+          "message": {
+            "text": "The MD5 algorithm reports as prone to a hash collision weakness."
+          },
+          "locations": [
+            {
+              "id":152837668226516122418835462082029522019,
+              "physicalLocation": {
+                    "artifactLocation": {
+                      "uri": "com.zimperium.zips.ZIAPAndroidInterface"
+                    },
+                      "region": {
+                        "startLine": 25,
+                        "snippet": {
+                          "text": "5 lines above and below"
+                          }
+                      }
+                }
+            },
+            {
+              "id":176953325908109297956380241085906487887,
+              "physicalLocation": {
+                    "artifactLocation": {
+                      "uri": "com.zimperium.zdetection.utils.ApkUtil"
+                    },
+                      "region": {
+                        "startLine": 25,
+                        "snippet": {
+                          "text": "5 lines above and below"
+                          }
+                      }
+                }
+            },
+            {
+              "id":286540528626924646832529434674942948276,
+              "physicalLocation": {
+                    "artifactLocation": {
+                      "uri": "com.zimperium.f0"
+                    },
+                      "region": {
+                        "startLine": 25,
+                        "snippet": {
+                          "text": "5 lines above and below"
+                          }
+                      }
+                }
+            }
+          ]
+        },
+        {
+          "ruleId": "5d9f4ea2-7d33-272f-bc8b-456700000000",
+          "ruleIndex": 3,
+          "message": {
+            "text": "This application has access to bluetooth communications which is used for data transfer between two bluetooth enabled devices."
+          },
+          "locations": [
+            {
+              "id":327818130668588569355398058188961343242,
+              "physicalLocation": {
+                    "artifactLocation": {
+                      "uri": "classes.dex"
+                    },
+                      "region": {
+                        "startLine": 25,
+                        "snippet": {
+                          "text": "5 lines above and below"
+                          }
+                      }
+                }
+            }
+          ]
+        },
+        {
+          "ruleId": "5db9a286-7d33-277c-4b8b-456700000000",
+          "ruleIndex": 4,
+          "message": {
+            "text": "This application is not using any DRBG functionality."
+          },
+          "locations": [
+            {
+              "id":327818130668588569355398058188961343242,
+              "physicalLocation": {
+                    "artifactLocation": {
+                      "uri": "classes.dex"
+                    },
+                      "region": {
+                        "startLine": 25,
+                        "snippet": {
+                          "text": "5 lines above and below"
+                          }
+                      }
+                }
+            }
+          ]
+        },
+        {
+          "ruleId": "6107e7db-178b-b800-695a-990000000000",
+          "ruleIndex": 5,
+          "message": {
+            "text": "The MD5 algorithm reports as prone to a hash collision weakness."
+          },
+          "locations": [
+            {
+              "id":152837668226516122418835462082029522019,
+              "physicalLocation": {
+                    "artifactLocation": {
+                      "uri": "com.zimperium.zips.ZTrustManager"
+                    },
+                      "region": {
+                        "startLine": 25,
+                        "snippet": {
+                          "text": "5 lines above and below"
+                          }
+                      }
+                }
+            },
+            {
+              "id":176953325908109297956380241085906487887,
+              "physicalLocation": {
+                    "artifactLocation": {
+                      "uri": "com.zimperium.k1"
+                    },
+                      "region": {
+                        "startLine": 25,
+                        "snippet": {
+                          "text": "5 lines above and below"
+                          }
+                      }
+                }
+            },
+            {
+              "id":286540528626924646832529434674942948276,
+              "physicalLocation": {
+                    "artifactLocation": {
+                      "uri": "com.zimperium.o"
+                    },
+                      "region": {
+                        "startLine": 25,
+                        "snippet": {
+                          "text": "5 lines above and below"
+                          }
+                      }
+                }
+            }
+          ]
+        },
+        {
+          "ruleId": "5e1c947b-71ac-d65e-5540-395100000000",
+          "ruleIndex": 6,
+          "message": {
+            "text": "The application is using an unapproved SHA cryptographic algorithm per NIST regulation FCS_COP.1(2)."
+          },
+          "locations": [
+            {
+              "id":327818130668588569355398058188961343242,
+              "physicalLocation": {
+                    "artifactLocation": {
+                      "uri": "com.zimperium.zips.ZIAPAndroidInterface"
+                    },
+                      "region": {
+                        "startLine": 25,
+                        "snippet": {
+                          "text": "5 lines above and below"
+                          }
+                      }
+                }
+            }
+          ]
+        },
+        {
+          "ruleId": "5fb402d1-d9a8-c20a-5e58-e34300000000",
+          "ruleIndex": 7,
+          "message": {
+            "text": "The application is using an unapproved SHA cryptographic algorithm per NIST regulation FCS_COP.1(2)."
+          },
+          "locations": [
+            {
+              "id":327818130668588569355398058188961343242,
+              "physicalLocation": {
+                    "artifactLocation": {
+                      "uri": "classes.dex"
+                    },
+                      "region": {
+                        "startLine": 25,
+                        "snippet": {
+                          "text": "5 lines above and below"
+                          }
+                      }
+                }
+            }
+          ]
+        },
+        {
+          "ruleId": "5fb402d1-d9a8-c20a-5e58-e34300000000",
+          "ruleIndex": 8,
+          "message": {
+            "text": "The app utilizes the Java.io.File delete() method to perform a file deletion."
+          },
+          "locations": [
+            {
+              "id":327818130668588569355398058188961343242,
+              "physicalLocation": {
+                    "artifactLocation": {
+                      "uri": "kotlin.io.FilesKt__UtilsKt"
+                    },
+                      "region": {
+                        "startLine": 25,
+                        "snippet": {
+                          "text": "5 lines above and below"
+                          }
+                      }
+                }
+            }
+          ]
+        },
+        {
+          "ruleId": "5efa65d6-badb-dd64-486d-14ef00000000",
+          "ruleIndex": 9,
+          "message": {
+            "text": "The application is using the rawQuery() or the rawQueryWithFactory() method calls."
+          },
+          "locations": [
+            {
+              "id":327818130668588569355398058188961343242,
+              "physicalLocation": {
+                    "artifactLocation": {
+                      "uri": "com.zimperium.e3"
+                    },
+                      "region": {
+                        "startLine": 25,
+                        "snippet": {
+                          "text": "5 lines above and below"
+                          }
+                      }
+                }
+            },
+            {
+              "id":327818130668588569355398058188961343242,
+              "physicalLocation": {
+                    "artifactLocation": {
+                      "uri": "com.zimperium.r6"
+                    },
+                      "region": {
+                        "startLine": 25,
+                        "snippet": {
+                          "text": "5 lines above and below"
+                          }
+                      }
+                }
+            }
+          ]
+        },
+        {
+          "ruleId": "5efa65d6-badb-dd64-486d-14ef00000000",
+          "ruleIndex": 10,
+          "message": {
+            "text": "Reflection is an API that is used to examine or modify the behaviour of methods, classes and interfaces at runtime."
+          },
+          "locations": [
+            {
+              "id":327818130668588569355398058188961343242,
+              "physicalLocation": {
+                    "artifactLocation": {
+                      "uri": "kotlinx.coroutines.internal.ExceptionsConstuctorKt"
+                    },
+                      "region": {
+                        "startLine": 25,
+                        "snippet": {
+                          "text": "5 lines above and below"
+                          }
+                      }
+                }
+            },
+            {
+              "id":327818130668588569355398058188961343242,
+              "physicalLocation": {
+                    "artifactLocation": {
+                      "uri": "kotlinx.coroutines.internal.ConcurrentKt"
+                    },
+                      "region": {
+                        "startLine": 25,
+                        "snippet": {
+                          "text": "5 lines above and below"
+                          }
+                      }
+                }
+            }
+          ]
+        },
+        {
+          "ruleId": "5da893bf-7d33-27f0-1f8b-456a00000000",
+          "ruleIndex": 11,
+          "message": {
+            "text": "This application has access to the network communication which is used to send and receive data to local or remote services and systems."
+          },
+          "locations": [
+            {
+              "id":327818130668588569355398058188961343242,
+              "physicalLocation": {
+                    "artifactLocation": {
+                      "uri": "com.zimperium.zdetection.service.ZVpnApi"
+                    },
+                      "region": {
+                        "startLine": 25,
+                        "snippet": {
+                          "text": "5 lines above and below"
+                          }
+                      }
+                }
+            },
+            {
+              "id":327818130668588569355398058188961343242,
+              "physicalLocation": {
+                    "artifactLocation": {
+                      "uri": "com.zimperium.zdetection.service.ZVpnService"
+                    },
+                      "region": {
+                        "startLine": 25,
+                        "snippet": {
+                          "text": "5 lines above and below"
+                          }
+                      }
+                }
+            }
+          ]
+        },
+        {
+          "ruleId": "5da893bf-7d33-27f0-1f8b-456a00000000",
+          "ruleIndex": 12,
+          "message": {
+            "text": "This application has access to the telephony services which is used to send and receive data to local or remote services and systems."
+          },
+          "locations": [
+            {
+              "id":327818130668588569355398058188961343242,
+              "physicalLocation": {
+                    "artifactLocation": {
+                      "uri": "com.zimperium.z1"
+                    },
+                      "region": {
+                        "startLine": 25,
+                        "snippet": {
+                          "text": "5 lines above and below"
+                          }
+                      }
+                }
+            },
+            {
+              "id":327818130668588569355398058188961343242,
+              "physicalLocation": {
+                    "artifactLocation": {
+                      "uri": "com.zimperium.zdetection.service.ZVpnService"
+                    },
+                      "region": {
+                        "startLine": 25,
+                        "snippet": {
+                          "text": "5 lines above and below"
+                          }
+                      }
+                }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
